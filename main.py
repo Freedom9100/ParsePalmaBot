@@ -1,4 +1,3 @@
-from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, CallbackContext
 from telethon import TelegramClient, events
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
