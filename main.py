@@ -12,7 +12,7 @@ api_hash = os.getenv("API_HASH")
 
 client = TelegramClient("session", api_id, api_hash)
 
-with open("channels.json", "r") as f:
+with open("channels.json", "r", encoding="utf-8") as f:
     telegram_channels = json.load(f)
 
 @client.on(events.NewMessage(chats=telegram_channels))

@@ -10,7 +10,7 @@ templates = Jinja2Templates(directory="templates")
 
 PASSWORD = "admin123"
 SESSION = {"logged_in": False}
-CHANNEL_FILE = "channels.json"
+CHANNEL_FILE = "../channels.json"
 
 
 def load_channels():
