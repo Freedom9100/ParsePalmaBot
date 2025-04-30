@@ -16,7 +16,7 @@ async def handle_message(update: Update, context: CallbackContext):
 
         try:
             headers = {
-                "X-Secret-Key": "secret"
+                "X-Secret-Key": "R1VvGj4JMXOenOY"
             }
 
             requests.post(API_URL, json=data, headers=headers)
