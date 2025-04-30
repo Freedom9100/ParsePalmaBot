@@ -7,15 +7,7 @@ import json
 
 API_URL = "http://localhost:3000/api/posts/telegram-post"
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-api_id = os.getenv("API_ID")
-api_hash = os.getenv("API_HASH")
 
-client = TelegramClient("session", api_id, api_hash)
-
-with open("channels.json", "r") as f:
-    telegram_channels = json.load(f)
-
-@client.on(events.NewMessage(chats=telegram_channels))
 async def handle_message(update: Update, context: CallbackContext):
     if update.channel_post:
         content = update.channel_post.text or ""
