@@ -3,14 +3,17 @@ from telegram.ext import ApplicationBuilder, MessageHandler, filters, CallbackCo
 from telethon import TelegramClient, events
 import requests
 import os
+import json
 
-API_URL = "http://palma-forum.io/api/posts/telegram-post"
+API_URL = "http://localhost:3000/api/posts/telegram-post"
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 api_id = os.getenv("API_ID")
 api_hash = os.getenv("API_HASH")
-telegram_channels = []
 
 client = TelegramClient("session", api_id, api_hash)
+
+with open("channels.json", "r") as f:
+    telegram_channels = json.load(f)
 
 @client.on(events.NewMessage(chats=telegram_channels))
 async def handle_message(update: Update, context: CallbackContext):
