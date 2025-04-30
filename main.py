@@ -1,11 +1,18 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, CallbackContext
+from telethon import TelegramClient, events
 import requests
 import os
 
 API_URL = "http://palma-forum.io/api/posts/telegram-post"
 BOT_TOKEN = os.getenv("BOT_TOKEN")
+api_id = os.getenv("API_ID")
+api_hash = os.getenv("API_HASH")
+telegram_channels = []
 
+client = TelegramClient("session", api_id, api_hash)
+
+@client.on(events.NewMessage(chats=telegram_channels))
 async def handle_message(update: Update, context: CallbackContext):
     if update.channel_post:
         content = update.channel_post.text or ""
