@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <h1 class="text-2xl font-bold mb-4">Список каналов</h1>
+
+  <ul class="mb-6">
+    {% for channel in channels %}
+      <li class="mb-2 bg-white p-2 rounded shadow">
+        {{ channel }}
+        <form method="post" action="/delete" class="inline ml-2">
+          <input type="hidden" name="channel" value="{{ channel }}">
+          <button class="text-red-500">Удалить</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <form method="post" action="/add" class="flex gap-2">
+    <input type="text" name="channel" placeholder="@channelname"
+           class="border p-2" required>
+    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Добавить</button>
+  </form>
+</body>
+</html>
