@@ -33,7 +33,6 @@ CHANNEL_FILE = "../channels.json"
 #--------FastAPI--------
 
 app = FastAPI()
-app.mount("../static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 def load_channels():
