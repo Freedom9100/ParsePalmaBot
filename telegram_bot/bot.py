@@ -19,5 +19,3 @@ async def run_bot():
 
     await app.initialize()
     await app.start()
-    await app.updater.start_polling()
-    await app.updater.wait_until_closed()
